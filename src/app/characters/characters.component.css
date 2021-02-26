@@ -1,0 +1,47 @@
+
+.course {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.course-thumbnail {
+    width: 150px;
+    margin: 20px auto 0 auto;
+    display: block;
+}
+
+.cell {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+mat-header-cell, mat-cell {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+.duration-cell mat-icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.spinner-container {
+    height: 360px;
+    width: 390px;
+    position: fixed;
+}
+
+.characters-table {
+    min-height: 360px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.spinner-container mat-spinner {
+    margin: 130px auto 0 auto;
+}

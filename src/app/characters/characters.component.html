@@ -1,0 +1,62 @@
+<div class="course">
+
+    <h2>Click row to display character image</h2>
+
+    <img class="course-thumbnail" [src]="characterIcon">
+
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+
+        <mat-spinner></mat-spinner>
+
+    </div>
+
+    <mat-table class="characters-table mat-elevation-z8" [dataSource]="dataSource"
+               matSort matSortActive="seqNo" matSortDirection="asc" matSortDisableClear>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+            <mat-cell *matCellDef="let character">{{character.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+            <mat-cell class="cell"
+                      *matCellDef="let character">{{character.name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="species">
+            <mat-header-cell *matHeaderCellDef> Species</mat-header-cell>
+            <mat-cell class="cell"
+                      *matCellDef="let character">{{character.species}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="origin">
+            <mat-header-cell *matHeaderCellDef>Origin</mat-header-cell>
+            <mat-cell class="cell"
+                      *matCellDef="let character">{{character.origin}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+            <mat-cell class="cell"
+                      *matCellDef="let character">{{character.gender}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" (click)="setCharIcon(row.img_url)"></mat-row>
+
+    </mat-table>
+
+
+    <mat-paginator [length]="40" [pageSize]="5"
+                   [pageSizeOptions]="[5, 20, 40]"></mat-paginator>
+
+
+
+</div>
+
+
+
+
+
+
